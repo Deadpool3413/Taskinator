@@ -35,7 +35,10 @@ var createTaskEl = function(taskDataObj) {
     taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
 
     listItemEl.appendChild(taskInfoEl);
-    
+    var taskActionsEl = createTaskActions(taskIdCounter);
+    listItemEl.appendChild(taskActionsEl);
+
+    tasksToDoEl.appendChild(listItemEl);
     tasksToDoEl.appendChild(listItemEl);
 
     taskIdCounter++;
@@ -77,12 +80,7 @@ var createTaskActions = function(taskId) {
         // append to select
         statusSelectEl.appendChild(statusOptionEl);
         
-var taskActionsEl = createTaskActions(taskIdCounter);
-listItemEl.appendChild(taskActionsEl);
-
-tasksToDoEl.appendChild(listItemEl);
-        
-    }
+    };
 
 actionContainerEl.appendChild(statusSelectEl);
     return actionContainerEl;
